@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "exec": "^0.2.1",
+    "mongodb": "^3.6.6",
+    "slimbot": "^5.1.0"
+  }
+}
