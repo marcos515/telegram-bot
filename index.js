@@ -19,7 +19,7 @@ var splitToWords = require('split-to-words');
         if(message.text == "/docker_status" || message.text == "/docker_status@logescravo_bot"){
             let status = await execComand(["docker", "ps", "-a", "--format", `{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}", "status":"{{.Status}}", "ports":"{{.Ports}}"}`])
             //docker ps --format '{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}", "status":"{{.Status}}"}'
-            let mesage = `Atualmente há ${status.length} conteiners rodando:\n\n`
+            let mesage = `Atualmente há ${status.length} conteiners:\n\n`
             for (let index = 0; index < status.length; index++) {
                 mesage += status[index].Image + "  -->  " + status[index].status + "\n\n"
                 
