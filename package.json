@@ -4,6 +4,7 @@
     "dotenv": "^8.2.0",
     "exec": "^0.2.1",
     "mongodb": "^3.6.6",
-    "slimbot": "^5.1.0"
+    "slimbot": "^5.1.0",
+    "split-to-words": "^2.0.0"
   }
 }
