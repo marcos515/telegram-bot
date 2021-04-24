@@ -16,12 +16,12 @@ var splitToWords = require('split-to-words');
     slimbot.on('message', async message => {
         
         let username = message.from.first_name
-        if(message.text == "/statusConteiners"){
-            let status = await execComand(["docker", "ps", "--format", `{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}", "status":"{{.Status}}", "ports":"{{.Ports}}"}`])
+        if(message.text == "/docker_status" || message.text == "/docker_status@logescravo_bot"){
+            let status = await execComand(["docker", "ps", "-a", "--format", `{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}", "status":"{{.Status}}", "ports":"{{.Ports}}"}`])
             //docker ps --format '{"ID":"{{ .ID }}", "Image": "{{ .Image }}", "Names":"{{ .Names }}", "status":"{{.Status}}"}'
             let mesage = `Atualmente há ${status.length} conteiners rodando:\n\n`
             for (let index = 0; index < status.length; index++) {
-                mesage += status[index].Image + "  -->  " + status[index].status + "\n"
+                mesage += status[index].Image + "  -->  " + status[index].status + "\n\n"
                 
             }
             func.sendMessage(token, message.chat.id, mesage)
